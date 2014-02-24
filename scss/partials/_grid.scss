@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Grid System
+   ========================================================================== */
+
+// base grid styles
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+ }
+
+%clearfix {
+    zoom:1;
+    &:before, &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        overflow: hidden;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+.container{
+		max-width: $container-width;
+		@if $container-margin-top != 0 {
+			margin: $container-margin-top auto 0 auto;
+		} @else {
+			margin: 0 auto;
+		}
+	}
+
+.container-fluid{
+	max-width: 100%;
+}
+
+[class*='col-']{
+	background-color: #666;
+	min-height: 100px;
+	margin: $col-margin;
+}
+
+
+@media only screen and (min-width: $sm-bp) {}
+
+@media only screen and (min-width: $med-bp) {
+
+	.grid{
+		padding: 0 $grid-padding;
+		@extend %clearfix;
+	}
+
+	.grid__row{
+		margin: 0 auto;
+		@extend %clearfix;
+	}
+
+	.last{
+		margin: 0;
+	}
+
+	[class*='col-']{
+		float: left;
+		background-color: #666;
+		min-height: 100px;
+		// padding: $col-padding;
+		margin: 0 $col-margin $col-margin 0;
+		&:last-of-type{
+			margin-right: 0;
+		}
+	}
+
+	@for $i from 1 through $cols {
+		$val: (100% - (($cols - 1) * $col-margin)) / $cols;
+
+	  	.grid__row__col-#{$i}-#{$cols} { 
+	  		width: ($val * $i) + ($col-margin * ($i - 1)); 
+	  	}
+	}
+} // end medium media query
+
+
+@media only screen and (min-width: $lrg-bp) {} // end large media query
+@media only screen and (min-width: $extlrg-bp) {} //end extra large media query
+
+
