@@ -10,19 +10,6 @@
   box-sizing: border-box;
  }
 
-%clearfix {
-    zoom:1;
-    &:before, &:after {
-        content: "\0020";
-        display: block;
-        height: 0;
-        overflow: hidden;
-    }
-    &:after {
-        clear: both;
-    }
-}
-
 .container{
 		max-width: $container-width;
 		@if $container-margin-top != 0 {
@@ -42,6 +29,14 @@
 	margin: $col-margin;
 }
 
+.grid{
+	@extend %clearfix;
+}
+
+.grid__row{
+	@extend %clearfix;
+}
+
 
 @media only screen and (min-width: $sm-bp) {}
 
@@ -49,12 +44,10 @@
 
 	.grid{
 		padding: 0 $grid-padding;
-		@extend %clearfix;
 	}
 
 	.grid__row{
 		margin: 0 auto;
-		@extend %clearfix;
 	}
 
 	.last{

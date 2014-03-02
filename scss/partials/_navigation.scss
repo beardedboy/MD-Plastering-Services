@@ -3,4 +3,98 @@
    Navigation
    ========================================================================== */
 
+	
+.menu {
+	margin: 1.6em .5em 0 0;
+}
 
+.menu__responsive{
+	padding: .5em 1em;
+	&:hover{
+		background-color: #ccc;
+		color: #fff;
+		border-radius: 0.3125em;
+	}
+}
+
+.menu__list {
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	background-color: #666;
+	width: 80%;
+	height: 100%;
+	top: 0;
+	right: -100%;
+	-webkit-transition: right 2s; /* For Safari 3.1 to 6.0 */
+	transition: right 2s;	
+}
+
+
+.menu__list__item{
+	display: block;
+	width: 100%;
+	text-align: center;
+	a{
+		display: block;
+		color: #fff;
+		width: 100%;
+		line-height: 3em;
+		text-decoration: none;
+
+		&:hover{
+			background-color: #ccc;
+			color: #000;
+		}
+	}
+}
+
+    .menu__list__item__link{
+
+    	&:hover{
+
+		}
+    }
+
+.menu__visible{
+	right: 0;
+}
+
+
+
+
+@media only screen and (min-width: $med-bp) {
+	.menu{
+		margin-right: 0; 
+	}
+
+	.menu__list {
+	position: static;
+	background-color: transparent;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+	.menu__list__item{
+		display: inline;
+		a{
+			display: inline;
+			color: #000;
+			text-decoration: none;
+			padding: 1em;
+
+			&:hover{
+				background-color: #ccc;
+				color: #000;
+			}
+		}
+	}
+
+	.menu__responsive, .back__btn{
+		display: none;
+	}
+}
+
+@media only screen and (min-width: $lrg-bp) {}
+
+@media only screen and (min-width: $extlrg-bp) {}
