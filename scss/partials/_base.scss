@@ -16,6 +16,8 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     color: $darkgrey;
+    width: 100%;
+    overflow: hidden;
 }
 
 ::-moz-selection {
